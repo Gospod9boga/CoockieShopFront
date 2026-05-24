@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --purple: #9b59b6;
+  --purple-dark: #8e44ad;
+  --yellow: #f1c40f;
+  --yellow-dark: #f39c12;
+  --white: #ffffff;
+  --light-bg: #fef9e6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--light-bg) 0%, #fff5e6 100%);
+  min-height: 100vh;
+}
+
+.navbar {
+  background: var(--white) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--purple-dark), #7d3c98);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+}
+
+.btn-outline-primary {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--purple);
+  border-color: var(--purple);
+  color: white;
+}
+
+.product-card {
+  transition: all 0.2s ease;
+  border: none !important;
+  background: var(--white) !important;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.price-tag {
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 1.3rem;
 }
