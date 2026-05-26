@@ -6,7 +6,7 @@ function ProductList() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/products')
+    fetch('http://72.56.240.200:8080/products')
       .then(response => response.json())
       .then(data => {
         setProducts(data);
@@ -68,7 +68,7 @@ function ProductList() {
               {product.imageUrl && (
                 <div className="position-relative overflow-hidden" style={{ height: '220px' }}>
                   <img 
-                    src={`http://localhost:8080${product.imageUrl}`}
+                    src={`http://72.56.240.200:8080${product.imageUrl}`}
                     className="card-img-top w-100 h-100 object-fit-cover" 
                     alt={product.name}
                     style={{ objectFit: 'cover', transition: 'transform 0.3s' }}

@@ -16,7 +16,7 @@ function AdminPanel() {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await fetch('http://localhost:8080/admin/products', {
+    const res = await fetch('http://72.56.240.200:8080/admin/products', {
       credentials: 'include'
     });
     const data = await res.json();
@@ -46,7 +46,7 @@ function AdminPanel() {
 
       // Обновляем текстовые поля
       if (Object.keys(updates).length > 0) {
-        const response = await fetch(`http://localhost:8080/admin/products/${editingProduct.id}`, {
+        const response = await fetch(`http://72.56.240.200:8080/admin/products/${editingProduct.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updates),
@@ -63,7 +63,7 @@ function AdminPanel() {
       if (formData.imageFile) {
         const imageData = new FormData();
         imageData.append('imageFile', formData.imageFile);
-        const response = await fetch(`http://localhost:8080/admin/products/${editingProduct.id}/image`, {
+        const response = await fetch(`http://72.56.240.200:8080/admin/products/${editingProduct.id}/image`, {
           method: 'PATCH',
           body: imageData,
           credentials: 'include'
@@ -89,7 +89,7 @@ function AdminPanel() {
         return;
       }
 
-      const res = await fetch('http://localhost:8080/admin/products', {
+      const res = await fetch('http://72.56.240.200:8080/admin/products', {
         method: 'POST',
         body: form,
         credentials: 'include'
@@ -111,7 +111,7 @@ function AdminPanel() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Удалить товар?')) return;
-    const response = await fetch(`http://localhost:8080/admin/products/${id}`, {
+    const response = await fetch(`http://72.56.240.200:8080/admin/products/${id}`, {
       method: 'DELETE',
       credentials: 'include'
     });
@@ -192,7 +192,7 @@ function AdminPanel() {
           <div key={p.id} className="col-md-4 mb-3">
             <div className="card">
               <img
-                src={`http://localhost:8080${p.imageUrl}`}
+                src={`http://72.56.240.200:8080${p.imageUrl}`}
                 className="card-img-top"
                 alt={p.name}
                 style={{ height: '150px', objectFit: 'cover' }}
