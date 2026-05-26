@@ -8,7 +8,7 @@ function AdminOrders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('http://localhost:8080/admin/orders', {
+      const res = await fetch('http://72.56.240.200:8080/admin/orders', {
         credentials: 'include'
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -29,7 +29,7 @@ function AdminOrders() {
 
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:8080/admin/orders/${id}/status`, {
+      const res = await fetch(`http://72.56.240.200:8080/admin/orders/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orderStatus: status }),
@@ -44,7 +44,7 @@ function AdminOrders() {
   const deleteOrder = async (id) => {
     if (!window.confirm('Удалить заказ?')) return;
     try {
-      const res = await fetch(`http://localhost:8080/admin/orders/${id}`, {
+      const res = await fetch(`http://72.56.240.200:8080/admin/orders/${id}`, {
         method: 'DELETE',
         credentials: 'include'
       });

@@ -13,10 +13,10 @@ function Login({ onLogin }) {
     formData.append('password', password);
     
     try {
-      const response = await fetch('http://localhost:8080/login', {
+      const response = await fetch('http://72.56.240.200:8080/api/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
         body: formData,
         credentials: 'include'
