@@ -8,27 +8,28 @@ function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const formData = new URLSearchParams();
-    formData.append('username', login);
-    formData.append('password', password);
-    
     try {
       const response = await fetch('http://72.56.240.200:8080/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: formData,
+        body: JSON.stringify({ login: login, password: password }),
         credentials: 'include'
       });
       
       if (response.ok) {
-        onLogin(true);
+        const data = await response.json();
+        if (data.success) {
+          onLogin(true);
+        } else {
+          setError('Неверный логин или пароль');
+        }
       } else {
-        setError('Неверный логин или пароль');
+        setError('Ошибка авторизации');
       }
     } catch (err) {
-      setError('Ошибка соединения');
+      setError('Ошибка соединения: ' + err.message);
     }
   };
 
